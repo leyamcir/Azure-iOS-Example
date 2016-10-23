@@ -15,6 +15,7 @@
 		1C288F861DBD125600CE6B29 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C288F851DBD125600CE6B29 /* libxml2.2.tbd */; };
 		1C288F8A1DBD130B00CE6B29 /* FakeClassAzure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F891DBD130B00CE6B29 /* FakeClassAzure.m */; };
 		1C288F8D1DBD166900CE6B29 /* ContainersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F8C1DBD166900CE6B29 /* ContainersTableViewController.swift */; };
+		1C288F8F1DBD438000CE6B29 /* ContainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1C288F881DBD130B00CE6B29 /* FakeClassAzure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeClassAzure.h; sourceTree = "<group>"; };
 		1C288F891DBD130B00CE6B29 /* FakeClassAzure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeClassAzure.m; sourceTree = "<group>"; };
 		1C288F8C1DBD166900CE6B29 /* ContainersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTableViewController.swift; sourceTree = "<group>"; };
+		1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				1C288F8C1DBD166900CE6B29 /* ContainersTableViewController.swift */,
+				1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				1C288F8D1DBD166900CE6B29 /* ContainersTableViewController.swift in Sources */,
 				1C288F8A1DBD130B00CE6B29 /* FakeClassAzure.m in Sources */,
 				1C288F711DBD0ECF00CE6B29 /* AppDelegate.swift in Sources */,
+				1C288F8F1DBD438000CE6B29 /* ContainerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
