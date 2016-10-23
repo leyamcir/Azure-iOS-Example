@@ -14,6 +14,50 @@ class ContainerTableViewController: UITableViewController {
     var container: AZSCloudBlobContainer?
     var model: [AZSCloudBlockBlob] = []
     
+    @IBAction func addBlobToStorage(_ sender: AnyObject) {
+        
+        uploadBlob()
+    }
+    
+    func uploadBlob() {
+        
+        // Create local blob
+        
+        let newBlob = container?.blockBlobReference(fromName: UUID().uuidString)
+        
+        // Take picture or take it from resources
+        
+        let image = UIImage(named: "jaredLeto-suicideSquad.jpg")
+        
+        // Upload
+        newBlob?.upload(from: UIImageJPEGRepresentation(image!, 0.5)!, completionHandler: { (error) in
+            
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            self.readAllBlobs()
+        })
+        
+    }
+    
+    func downloadBlobFromStorage(_ blob: AZSCloudBlockBlob) {
+        
+        blob.downloadToData{ (error, data) in
+            
+            if let _ = error {
+                print (error)
+                return
+            }
+            
+            if let _ = data {
+                let img = UIImage(data: data)
+                print("Image ok")
+            }
+        }
+    }
+    
     func readAllBlobs () {
         container?.listBlobsSegmented(with: nil,
                                       prefix: nil,
@@ -102,6 +146,12 @@ class ContainerTableViewController: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.model[indexPath.row]
+        
+        downloadBlobFromStorage(item)
+    }
 
     /*
     // Override to support conditional editing of the table view.

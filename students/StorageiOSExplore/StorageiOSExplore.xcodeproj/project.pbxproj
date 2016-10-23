@@ -16,6 +16,7 @@
 		1C288F8A1DBD130B00CE6B29 /* FakeClassAzure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F891DBD130B00CE6B29 /* FakeClassAzure.m */; };
 		1C288F8D1DBD166900CE6B29 /* ContainersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F8C1DBD166900CE6B29 /* ContainersTableViewController.swift */; };
 		1C288F8F1DBD438000CE6B29 /* ContainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */; };
+		1C288F921DBD4B4700CE6B29 /* jaredLeto-suicideSquad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C288F911DBD4B4700CE6B29 /* jaredLeto-suicideSquad.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1C288F891DBD130B00CE6B29 /* FakeClassAzure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeClassAzure.m; sourceTree = "<group>"; };
 		1C288F8C1DBD166900CE6B29 /* ContainersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTableViewController.swift; sourceTree = "<group>"; };
 		1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewController.swift; sourceTree = "<group>"; };
+		1C288F911DBD4B4700CE6B29 /* jaredLeto-suicideSquad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jaredLeto-suicideSquad.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		1C288F641DBD0ECF00CE6B29 = {
 			isa = PBXGroup;
 			children = (
+				1C288F901DBD4B2800CE6B29 /* Resources */,
 				1C288F821DBD11B300CE6B29 /* Frameworks */,
 				1C288F6F1DBD0ECF00CE6B29 /* StorageiOSExplore */,
 				1C288F6E1DBD0ECF00CE6B29 /* Products */,
@@ -96,6 +99,14 @@
 				1C288F8E1DBD438000CE6B29 /* ContainerTableViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C288F901DBD4B2800CE6B29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C288F911DBD4B4700CE6B29 /* jaredLeto-suicideSquad.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C288F921DBD4B4700CE6B29 /* jaredLeto-suicideSquad.jpg in Resources */,
 				1C288F7B1DBD0ECF00CE6B29 /* LaunchScreen.storyboard in Resources */,
 				1C288F781DBD0ECF00CE6B29 /* Assets.xcassets in Resources */,
 				1C288F761DBD0ECF00CE6B29 /* Main.storyboard in Resources */,

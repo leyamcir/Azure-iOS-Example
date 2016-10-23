@@ -67,6 +67,14 @@
                             <outlet property="delegate" destination="6kt-P8-1cy" id="vLN-EB-OJj"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" systemItem="add" id="BKM-X8-tQA">
+                            <connections>
+                                <action selector="addBlobToStorage:" destination="6kt-P8-1cy" id="8BS-1j-t6H"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucH-jY-WOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
