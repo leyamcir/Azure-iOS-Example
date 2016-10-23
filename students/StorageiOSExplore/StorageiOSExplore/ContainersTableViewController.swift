@@ -20,7 +20,7 @@ class ContainersTableViewController: UITableViewController {
         let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
             let nameContainer = alert.textFields![0] as UITextField
             print("Boton OK --> \(nameContainer.text)")
-            self.newContainer(nameContainer.text!)
+            //self.newContainer(nameContainer.text!)
             
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -34,6 +34,20 @@ class ContainersTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func setupAzureClient() {
+        do {
+            let credentials = AZSStorageCredentials(accountName: "amdcboot3storage",
+                                                    accountKey: "xoCiVfi2Her3h/Q038jkP43Ma5FV7Mv7Ln0CGWPojgHG8ElGGjqmPeefySKUuzHKl9AvyUvid+mEz0YSKsAgZg==")
+            
+            let account = try AZSCloudStorageAccount(credentials: credentials, useHttps: true)
+            
+            client = account.getBlobClient()
+        } catch let error {
+            print(error)
+        }
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +56,8 @@ class ContainersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        setupAzureClient()
     }
 
     override func didReceiveMemoryWarning() {
