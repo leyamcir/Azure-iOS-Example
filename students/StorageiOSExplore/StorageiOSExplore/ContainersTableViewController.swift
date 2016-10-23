@@ -14,7 +14,24 @@ class ContainersTableViewController: UITableViewController {
     
 
     @IBAction func addNewContainer(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Nuevo Container", message: "Escribe un nombre de 3 a 24 caracteres", preferredStyle: .alert)
         
+        
+        let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
+            let nameContainer = alert.textFields![0] as UITextField
+            print("Boton OK --> \(nameContainer.text)")
+            self.newContainer(nameContainer.text!)
+            
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionOk)
+        alert.addAction(actionCancel)
+        alert.addTextField { (textField) in
+            
+            textField.placeholder = "Introduce un nombre para el container"
+            
+        }
+        present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
