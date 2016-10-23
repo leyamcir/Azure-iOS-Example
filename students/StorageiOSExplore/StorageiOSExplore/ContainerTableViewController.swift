@@ -52,7 +52,7 @@ class ContainerTableViewController: UITableViewController {
             }
             
             if let _ = data {
-                let img = UIImage(data: data)
+                let image = UIImage(data: data!)
                 print("Image ok")
             }
         }
@@ -96,6 +96,41 @@ class ContainerTableViewController: UITableViewController {
             
             self.readAllBlobs()
         }
+    }
+    
+    func uploadBlobWithSAS() {
+        
+        do {
+        
+            let sas = "sv=2015-04-05&ss=bfqt&srt=sco&sp=rwdlacup&se=2016-10-24T04:09:31Z&st=2016-10-23T20:09:31Z&spr=https&sig=4XyoFAaSCVvtYUuTQqt00l%2Bruiw1yXdKvTCZkvzOOmw%3D"
+            let credentials = AZSStorageCredentials(sasToken: sas, accountName: "amdcboot3storage")
+        
+            let account = try AZSCloudStorageAccount(credentials: credentials, useHttps: true)
+            
+            let client = account.getBlobClient()
+            
+            // Take picture or take it from resources
+            
+            let image = UIImage(named: "jaredLeto-suicideSquad.jpg")
+            
+            let cont = client?.containerReference(fromName: (self.container?.name)!)
+            let blob = cont?.blockBlobReference(fromName: UUID().uuidString)
+            
+            // Upload
+            
+            blob?.upload(from: UIImageJPEGRepresentation(image!, 0.5)!, completionHandler: { (error) in
+                
+                if error != nil {
+                    print(error)
+                    return
+                }
+                
+                self.readAllBlobs()
+            })
+        } catch let ex {
+            print(ex)
+        }
+        
     }
     
     override func viewDidLoad() {
