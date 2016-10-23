@@ -9,7 +9,14 @@
 import UIKit
 
 class ContainersTableViewController: UITableViewController {
+    
+    var client: AZSCloudBlobClient?
+    
 
+    @IBAction func addNewContainer(_ sender: AnyObject) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
