@@ -21,7 +21,7 @@ class ContainersTableViewController: UITableViewController {
         let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
             let nameContainer = alert.textFields![0] as UITextField
             print("Boton OK --> \(nameContainer.text)")
-            //self.newContainer(nameContainer.text!)
+            self.newContainer(nameContainer.text!)
             
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -69,6 +69,28 @@ class ContainersTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        })
+    }
+    
+    func newContainer(_ name: String) {
+        let blobContainer = client?.containerReference(fromName: name)
+        
+        blobContainer?.createContainerIfNotExists(with: AZSContainerPublicAccessType.container,
+                                                  requestOptions: nil,
+                                                  operationContext: nil,
+                                                  completionHandler: { (error, result) in
+                                                    
+            if let _ = error {
+                print(error)
+                return
+            }
+                                                    
+            if result {
+                print("Container created succesfully")
+            } else {
+                print("Container already exists, won't be created again")
+            }
+                                                        
         })
     }
     
