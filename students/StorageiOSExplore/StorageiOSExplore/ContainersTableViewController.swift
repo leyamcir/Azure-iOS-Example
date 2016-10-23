@@ -49,6 +49,20 @@ class ContainersTableViewController: UITableViewController {
        
     }
     
+    func eraseContainer(_ container: AZSCloudBlobContainer)  {
+        container.deleteIfExists { (error, results) in
+            
+            if let _ = error {
+                print(error)
+                return
+            }
+            
+            if results {
+                self.readAllContainers()
+            }
+        }
+    }
+    
     func readAllContainers() {
         client?.listContainersSegmented(with: nil,
                                         prefix: nil,
@@ -77,7 +91,7 @@ class ContainersTableViewController: UITableViewController {
     }
     
     func newContainer(_ name: String) {
-        let blobContainer = client?.containerReference(fromName: name)
+        let blobContainer = client?.containerReference(fromName: name.lowercased())
         
         blobContainer?.createContainerIfNotExists(with: AZSContainerPublicAccessType.container,
                                                   requestOptions: nil,
@@ -88,9 +102,11 @@ class ContainersTableViewController: UITableViewController {
                 print(error)
                 return
             }
+                                                
                                                     
             if result {
                 print("Container created succesfully")
+                self.readAllContainers()
             } else {
                 print("Container already exists, won't be created again")
             }
