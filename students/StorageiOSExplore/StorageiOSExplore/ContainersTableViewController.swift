@@ -61,6 +61,10 @@ class ContainersTableViewController: UITableViewController {
                 return
             }
                                             
+            if !self.model.isEmpty {
+                self.model.removeAll()
+            }
+                                            
             for item in (containersResults?.results)! {
                 print(item)
                 self.model.append((item as? AZSCloudBlobContainer)!)
