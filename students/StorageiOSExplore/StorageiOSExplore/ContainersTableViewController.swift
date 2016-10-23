@@ -11,6 +11,7 @@ import UIKit
 class ContainersTableViewController: UITableViewController {
     
     var client: AZSCloudBlobClient?
+    var model: [AZSCloudBlobContainer] = []
     
 
     @IBAction func addNewContainer(_ sender: AnyObject) {
@@ -48,6 +49,29 @@ class ContainersTableViewController: UITableViewController {
        
     }
     
+    func readAllContainers() {
+        client?.listContainersSegmented(with: nil,
+                                        prefix: nil,
+                                        containerListingDetails: AZSContainerListingDetails.all,
+                                        maxResults: -1,
+                                        completionHandler: { (error, containersResults) in
+                                            
+            if let _ = error {
+                print(error)
+                return
+            }
+                                            
+            for item in (containersResults?.results)! {
+                print(item)
+                self.model.append((item as? AZSCloudBlobContainer)!)
+            }
+          
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +82,8 @@ class ContainersTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         setupAzureClient()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
